@@ -23,7 +23,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y git zip unzip openjdk-17-jdk autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
           pip install --upgrade pip setuptools virtualenv
-          pip install buildozer cython==0.29.33
+          pip install buildozer==1.5.0 Cython==0.29.33 python-for-android
 
       - name: Compilar el APK
         run: yes | buildozer -v android debug
@@ -31,5 +31,5 @@ jobs:
       - name: Entregar el APK terminado
         uses: actions/upload-artifact@v4
         with:
-          name: BuscadorGH_APK
+          name: Buscador_APK
           path: bin/*.apk
